@@ -286,7 +286,7 @@ void printGame()
     cin.get();
 }
 
-void endGame(std::vector<Triangle>& triangles)
+void endGame(vector<Triangle>& triangles, bool automatic)
 {
     VoxelGrid grid(0, 0, 0, 256, 256, 2);
     for (int x = 0; x < 256; x++)
@@ -296,15 +296,36 @@ void endGame(std::vector<Triangle>& triangles)
             if ((abs(x - y) < 2) || (abs(x - (255 - y)) < 2)) grid.setCube(x, y);
         }
     }
+    cout << "You lose!!!\n";
+    triangles.clear();
     meshGreedy(grid, triangles);
     saveSTL(triangles, "mapa.stl");
-    printGame();
+    if (automatic) printGame();
+    exit(0);
+}
+
+void winGame(vector<Triangle>& triangles, bool automatic)
+{
+    VoxelGrid grid(0, 0, 0, 256, 256, 2);
+    for (int x = 0; x < 256; x++)
+    {
+        for (int y = 0; y < 256; y++)
+        {
+            if ((abs((y - 200) - (255 - x)) < 2) || abs((y - 55 - x)) < 2) grid.setCube((255 - x), y);
+        }
+    }
+
+    cout << "You win!!!\n";
+    triangles.clear();
+    meshGreedy(grid, triangles);
+    saveSTL(triangles, "mapa.stl");
+    if (automatic) printGame();
     exit(0);
 }
 
 int main()
 {
-    std::vector<Triangle> triangles;
+    vector<Triangle> triangles;
     // setup mapki wysokosci
     drawAndFillSquare({ 96, 0 }, { 160, 64 }, 8); // podniesienie
 
@@ -375,6 +396,8 @@ int main()
     if (answer == "yes") printGame();
     else cout << "Your file is ready to print (mapa.stl in the same directory as this script).\n";
 
+    //winGame(triangles, (answer == "yes"));
+
     string wagaStr;
     string kierunekStr;
     string strzelicStr;
@@ -437,6 +460,19 @@ int main()
                     }
                 }
             }
+            bool ktosZyje = false;
+            for (int i = 0; i < 4; i++)
+            {
+                if (enemies[i].zyje == true)
+                {
+                    ktosZyje = true;
+                    break;
+                }
+            }
+            if (!ktosZyje)
+            {
+                winGame(triangles, (answer == "yes"));
+            }
         }
         else if (strzelicStr != "no")
         {
@@ -477,7 +513,7 @@ int main()
             player.z = heightMap[player.x][player.y] + 1;
         }
 
-        float budzet = waga * 1.3f;
+        float budzet = waga * 0.8f;
         for (int i = 0; i < 4; i++)
         {
             if (enemies[i].zyje == true)
@@ -560,7 +596,7 @@ int main()
                 }
 
                 // sprawdzanie czy przewalil
-                if ((abs(player.x - enemies[i].x) + abs(player.y - enemies[i].y) < 25)) endGame(triangles);
+                if ((abs(player.x - enemies[i].x) + abs(player.y - enemies[i].y) < 25)) endGame(triangles, (answer == "yes"));
             }
         }
 
