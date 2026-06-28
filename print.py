@@ -1,7 +1,7 @@
 import pyautogui
 import time
 
-ileOkien = 1
+ileOkien = 1 # don't change this
 
 
 def klik(x, y, odstep = 0.01, czas = 0.2):
@@ -9,19 +9,17 @@ def klik(x, y, odstep = 0.01, czas = 0.2):
     time.sleep(odstep)
     pyautogui.click()
 
-xLoad, yLoad = 1380, 653
-xTick, yTick = 1407, 219
-xX, yX = 1583, 164
-xY, yY = 1645, 164
-xSlice, ySlice = 2263, 50
-xPrint, yPrint = 2415, 50
-xSend, ySend = 1533, 992
-xPrepare, yPrepare = 115, 51
-xDevice, yDevice = 324, 47
+# change these if you are not using 1440p monitor
+xLoad, yLoad = 1380, 653 # (you don't have to change this one unless you have really weak PC) x and y coordinates of a window that pops up when the stl is loading in bambu studio
+xSlice, ySlice = 2263, 50 # x and y coordinates of the "slice plate" button
+xPrint, yPrint = 2415, 50 # x and y coordinates of the "print plate" button
+xSend, ySend = 1533, 992 # x and y coordinates of the "send" button
+xPrepare, yPrepare = 115, 51 # x and y coordinates of the "prepare" tab
+xDevice, yDevice = 324, 47 # x and y coordinates of the "device" tab
 
-rgbOkna = (45, 45, 49)
-rgbTick = (0, 173, 66)
-rgbPrint = (33, 164, 82)
+# you probably don't have to change those, change only if something doesn't work
+rgbOkna = (45, 45, 49) # (you don't have to change this one unless you have really weak PC) rgb values of a window that pops up when the stl is loading in bambu studio
+rgbPrint = (33, 164, 82) # rgb values of the "print plate" button when it is enabled (green)
 
 def color_close(c1, c2, tolerance=10):
     return all(abs(a - b) <= tolerance for a, b in zip(c1, c2))
