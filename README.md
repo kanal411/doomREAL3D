@@ -19,9 +19,10 @@ Each turn you enter instructions in the form of <distance> <direction> <shoot> (
 ## Automatic printing
 This is experimental function, it will simulate mouse and keyboard input, so close any important programs before running it. It is vulnerable to changes in Bambu Studio UI, and requires adjustments in print.py for every resolutions except 1440p.
 
-## Images
+## Gallery
 ![screenshot1](images/screenshot1.png)
 ![photo1](images/photo1.jpg)
+![timelapse](images/timelapse.gif)
 
 ## AI usage
 AI was used for debugging and help with generating STL from c++.
