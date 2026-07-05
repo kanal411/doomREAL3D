@@ -14,7 +14,7 @@ Simple turn-based shooter that instead of displaying gameplay on a monitor, prin
 3. Run `3dDoom.exe`.
 
 ## How to play
-Each turn you enter instructions in the form of <distance> <direction> <shoot> (for example: "5 north no" or "10 west yes"). Your goal is to eliminate all 4 enemies. If they get too close, you lose. The map is a 255×255 grid with simple stairs, an elevated platform, and four pillars.
+Each turn you enter instructions in the form of \<distance\> \<direction\> \<shoot\> (for example: "5 north no" or "10 west yes"). Your goal is to eliminate all 4 enemies. If they get too close, you lose. The map is a 255×255 grid with simple stairs, an elevated platform, and four pillars.
 
 ## Automatic printing
 This is experimental function, it automates keyboard and mouse input; may interfere with other applications. It is vulnerable to changes in Bambu Studio UI, and requires adjustments in print.py for every resolutions except 1440p.
