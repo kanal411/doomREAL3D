@@ -23,6 +23,7 @@ This is experimental function, it automates keyboard and mouse input; may interf
 ![screenshot1](images/screenshot1.png)
 ![photo1](images/photo1.jpg)
 ![timelapse](images/timelapse.gif)
+[![demo](https://img.youtube.com/vi/41roBngP7TU/0.jpg)](https://www.youtube.com/watch?v=41roBngP7TU)
 
 ## AI usage
 AI was used for debugging and help with generating STL from c++.
