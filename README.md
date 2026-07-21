@@ -27,7 +27,7 @@ This is experimental function, it automates keyboard and mouse input; may interf
 ## YouTube video
 [![demo](https://img.youtube.com/vi/41roBngP7TU/0.jpg)](https://www.youtube.com/watch?v=41roBngP7TU)
 
-*Click the preview above to watch the demo.*
+*Click the image above to watch the demo.*
 
 ## AI usage
 AI was used for debugging and help with generating STL from c++.
